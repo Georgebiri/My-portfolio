@@ -17,7 +17,9 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ["What matters in life is not the mere fact that we have lived, but it is the change we make in the lives of others that determines the significance of the life we lead  ~ Nelson Mandela", 
+      "Live, Love, laugh - Myself", "The most effective way to do is to do it - Amelia Earhart", "The best and most beautiful things in the world cannot be seen or even touched- they must be felt with the heart - Helen keller",
+      "You just cannot beat the person who never gives up - Babe Ruth", "Try not to become a man of success, but rather try to become a man of value - Albert Einstein"];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
