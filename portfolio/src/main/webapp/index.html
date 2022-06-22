@@ -9,7 +9,6 @@
 </head>
 
 <body style="background-color:skyblue;">
-    
     <div id="content">
         <h1>George Birikorang's Portfolio</h1>
         <p>Welcome to my space!</p>
@@ -48,7 +47,26 @@
         <p>Click here to get a random motivational quote for the day:</p>
         <button onclick="addRandomGreeting()">Quote</button>
         <div id="greeting-container"></div>
+    
+        <p> Wanna know some random facts about me?</p>
+        <p> Let's have fun. Click this button to begin.</p>
+        <button onclick="showServlet()">Fan facts</button>
+        <p id="servlet-container"></p>
+        <p>Or just Click <a href="/hello">here</a> to see all my random, fun facts at once.</p>
+
+        <p>You have seen and read so much about me. Now, it's time to get to know you. Tell me about yourself!
+            Anything. Where are you from? What's your favorite movie/show? What are you most passionate about?
+            What are your social media and other account handles? 
+        </p>
+        <form action="/form-handler" method="POST">
+            <input type="text" name="name-input" placeholder="Your Name"/>
+            <input type="text" name="school-input" placeholder="Your School"/>
+            <input type="text" name="linkedin-input" placeholder="Your LinkedIn Profile"/>
+            <textarea name="description-input" placeholder="Now, tell me about yourself!"></textarea>
+            <input type="submit"/>
+          </form>
     </div>
+
 </body>
 
 </html>
