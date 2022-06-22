@@ -29,12 +29,23 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-/** Fetches info from the servlet and adds it to the page. */
+/* Fetches info from the servlet and adds it to the page. 
 async function showServlet() {
     const responseFromServer = await fetch('/hello');
     const textFromResponse = await responseFromServer.text();
-  
+
     const servletContainer = document.getElementById('servlet-container');
     servletContainer.innerText = textFromResponse;
-  }
-  
+}
+*/
+async function showServlet() {
+    const responseFromServer = await fetch('/hello');
+    const textFromResponse = await responseFromServer.json();
+
+    console.log(textFromResponse.x);
+    console.log(textFromResponse.y);
+    console.log(textFromResponse.z);
+
+    const servletContainer = document.getElementById('servlet-container');
+    servletContainer.innerText = textFromResponse;
+}
