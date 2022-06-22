@@ -5,6 +5,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.FullEntity;
+import com.google.cloud.datastore.KeyFactory;
+
 
 @WebServlet("/form-handler")
 public class FormHandlerServlet extends HttpServlet {
@@ -31,5 +37,19 @@ public class FormHandlerServlet extends HttpServlet {
     response.getWriter().println("You go to school at " + schoolInput + ", and");
     response.getWriter().println("your linkedIn profile is: " + linkedInInput + "!");
     response.getWriter().println("A bit about yourself: " + DescriptionInput);
+
+
+    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Task");
+    FullEntity taskEntity =
+        Entity.newBuilder(keyFactory.newKey())
+            .set("Name", nameInput)
+            .set("School",schoolInput)
+            .set("LinkedIn", linkedInInput)
+            .set("Description", DescriptionInput)
+            .build();
+    datastore.put(taskEntity);
+    
+    response.sendRedirect("/index.html");
   }
 }
